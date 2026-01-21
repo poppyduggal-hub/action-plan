@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Plan - Personalized Health Guidance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+    </div>
+
+    <div class="container">
+        <header class="header fade-in">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <path d="M 15 25 L 22 32 L 35 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1>Action Plan</h1>
+            </div>
+            <p class="tagline">Your personalized health guidance companion</p>
+        </header>
+
+        <main id="app">
+            <!-- Step 1: Age Selection -->
+            <section id="age-selection" class="step-section active">
+                <div class="step-header">
+                    <span class="step-number">Step 1</span>
+                    <h2>Who is this for?</h2>
+                </div>
+                <div class="age-group-buttons">
+                    <button class="age-btn" data-age="kid">
+                        <div class="age-icon">👶</div>
+                        <span>Kid</span>
+                        <small>Ages 3-12</small>
+                    </button>
+                    <button class="age-btn" data-age="teen">
+                        <div class="age-icon">🧑</div>
+                        <span>Teen</span>
+                        <small>Ages 13-17</small>
+                    </button>
+                    <button class="age-btn" data-age="adult">
+                        <div class="age-icon">👤</div>
+                        <span>Adult</span>
+                        <small>Ages 18+</small>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 2: Health Concern -->
+            <section id="concern-input" class="step-section">
+                <div class="step-header">
+                    <span class="step-number">Step 2</span>
+                    <h2>What's the health concern?</h2>
+                </div>
+                <div class="input-group">
+                    <label for="health-concern">Describe the concern</label>
+                    <textarea
+                        id="health-concern"
+                        placeholder="e.g., persistent headaches, difficulty sleeping, upset stomach..."
+                        rows="4"
+                    ></textarea>
+                    <small class="help-text">Be specific but brief. No need for personal medical history.</small>
+                </div>
+                <button class="btn btn-secondary" id="add-context-btn">+ Add Optional Context</button>
+
+                <!-- Optional Context (Hidden by default) -->
+                <div id="context-section" class="context-section hidden">
+                    <div class="input-group">
+                        <label for="context">Additional Context (Optional)</label>
+                        <textarea
+                            id="context"
+                            placeholder="e.g., goals, dietary restrictions, allergies, lifestyle factors..."
+                            rows="3"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" id="back-to-age">Back</button>
+                    <button class="btn btn-primary" id="generate-plan">Generate Action Plan</button>
+                </div>
+            </section>
+
+            <!-- Step 3: Loading -->
+            <section id="loading-section" class="step-section">
+                <div class="loading-container">
+                    <div class="loader">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay-1"></div>
+                        <div class="pulse-ring delay-2"></div>
+                    </div>
+                    <h3>Creating your personalized action plan...</h3>
+                    <p class="loading-text">Analyzing health guidance</p>
+                </div>
+            </section>
+
+            <!-- Step 4: Results -->
+            <section id="results-section" class="step-section">
+                <div class="results-header">
+                    <h2>Your Action Plan</h2>
+                    <p class="disclaimer">
+                        <svg class="disclaimer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <strong>Important:</strong> This is general guidance only, not medical advice.
+                        Always consult a healthcare professional for diagnosis and treatment.
+                    </p>
+                </div>
+
+                <div id="action-plan-content" class="action-plan-content">
+                    <!-- Dynamically generated content goes here -->
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-outline" id="start-over">Start Over</button>
+                    <button class="btn btn-secondary" id="print-plan">Print Plan</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Emergency? Call 911 or your local emergency number immediately.</p>
+            <p class="footer-note">Action Plan provides general wellness guidance. Not a substitute for professional medical care.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
